@@ -9,7 +9,7 @@ Repozytorium na potrzeby szkolenia Docker, Kubernetes, OpenShift
 
 ## Prezentacje
 
-1. [Docker & Kubernetes](./docker_kubernetes.pdf)
+1. [Docker & Kubernetes](https://github.com/cloudstateu/cm-122021/raw/main/docker_kubernetes.pdf) ([pobierz prezentacje](https://github.com/cloudstateu/cm-122021/raw/main/docker_kubernetes.pdf))
 1. [OpenShift](./openshift.pdf)
 
 <br><br>
