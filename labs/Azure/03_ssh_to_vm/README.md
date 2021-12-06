@@ -5,20 +5,20 @@
 
 # Logowanie do maszyny studenckiej za pomocą SSH
 
-W tym laboratorium dowiesz się jak zalogować się na maszynę VM podczas ćwiczeń związanych z Docker oraz jak zainstalować samego Dockera.
+W tym laboratorium dowiesz się jak zalogować się na laboratoryjną maszynę wirtualną z Docker.
 
 ---
 
 ## Krok 1: Logowanie do maszyny studenckiej
 
 1. Przejdź do [portal.azure.com](https://portal.azure.com) i uruchom Cloud Shell.
-1. W Cloud Shell wykonaj ponizszą komendę i skopiuj adres IP dla swojej maszyny (z numerem Twojego konta studenta)
+1. W Cloud Shell wykonaj ponizszą komendę i skopiuj adres IP dla swojej maszyny
 
     ```bash
     az vm list-ip-addresses --query "[].{name:virtualMachine.name, IP:virtualMachine.network.publicIpAddresses[0].ipAddress}" -o table
     ```
 
-1. Uzupełnij ponizszą komendę skopiowanym adresem IP i wykonaj ją w Cloud Shell
+1. Zaloguj się po SSH do maszyny wirtualnej. Uzupełnij poniższą komendę adresem IP, którym skopiowałeś w poprzednim kroku.
 
     ```bash
     ssh ubuntu@<vm-ip>
@@ -38,13 +38,13 @@ W tym laboratorium dowiesz się jak zalogować się na maszynę VM podczas ćwic
     Are you sure you want to continue connecting (yes/no)?
     ```
 
-1. W tym kroku podasz hasło uzytkownika. Kazdy uzytkownik posiada domyślne haslo:
+1. Podaj hasło uzytkownika. Hasło to:
 
     ```bash
     Chmurowisko123!@#
     ```
 
-    Po wpisaniu hasła zatwierdź próbę logowania naciskając Enter.
+    Zatwierdź wpisanie hasła wciskając klawisz `Enter`
 
 1. Powinieneś zostać zalogowany na maszynę wirtualną w Azure z sukcesem.
 
