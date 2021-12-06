@@ -18,16 +18,16 @@ W tym laboratorium dowiesz się jak zalogować się na maszynę VM podczas ćwic
     az vm list-ip-addresses --query "[].{name:virtualMachine.name, IP:virtualMachine.network.publicIpAddresses[0].ipAddress}" -o table
     ```
 
-1. Uzupełnij ponizszą komendę swoim loginem studenta oraz skopiowanym adresem IP i wykonaj ją w Cloud Shell
+1. Uzupełnij ponizszą komendę skopiowanym adresem IP i wykonaj ją w Cloud Shell
 
     ```bash
-    ssh <login>@<vm-ip>
+    ssh ubuntu@<vm-ip>
     ```
 
     Gotowa komenda powinna wyglądać podobnie do tej:
 
     ```bash
-    ssh cmst01@20.100.200.10
+    ssh ubuntu@20.100.200.10
     ```
 
 1. Zapytany o autentyczność hosta wpisz `yes` i naciśnij Enter
@@ -38,19 +38,15 @@ W tym laboratorium dowiesz się jak zalogować się na maszynę VM podczas ćwic
     Are you sure you want to continue connecting (yes/no)?
     ```
 
-1. W tym kroku podasz hasło uzytkownika. Kazdy uzytkownik posiada haslo w formacie:
+1. W tym kroku podasz hasło uzytkownika. Kazdy uzytkownik posiada domyślne haslo:
 
     ```bash
-    VMstudentXX!
+    Chmurowisko123!@#
     ```
-
-    gdzie `XX` to Twój numer studenta
-
-    Przykładowe hasło uzytkownika o loginie `cmst01` to `VMstudent01!`
 
     Po wpisaniu hasła zatwierdź próbę logowania naciskając Enter.
 
-1. Powinieneś zostać zalogowany z sukcesem.
+1. Powinieneś zostać zalogowany na maszynę wirtualną w Azure z sukcesem.
 
 ## END LAB
 
