@@ -1,16 +1,14 @@
-"use strict";
-
-const express = require("express");
+const express = require('express');
 const app = express();
 
-app.get("/", (req, res) => {
-  res.json({ status: "ok", data: process.env });
+app.get('/', (_, res) => {
+  res.json({ status: 'ok', data: process.env });
 });
 
-// /chmurowisko?name=Joe
-app.get("/chmurowisko", (req, res) => {
+// /greet?name=Joe
+app.get('/greet', (req, res) => {
   const name = req.query.name;
-  res.send(`Welcome to the workshop, ${name}!`);
+  res.json({ status: 'ok', data: name });
 });
 
 const port = 8080;

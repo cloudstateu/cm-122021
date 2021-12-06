@@ -37,7 +37,7 @@ In this lab you will learn basic Docker commands and run your first container
 
     This command will start nginx server inside container. Nginx server will serve single, welcome HTML page.
 
-1. Open web browser, paste your virtual machine public IP address and check if nginx serve welcome page.
+1. Open web browser, paste virtual machine public IP address and check if nginx serve welcome page.
 1. Go back to terminal
 
     In terminal you can see all logs produced by the nginx process. In fact you see everything that goes to a standard output of a container.
@@ -46,11 +46,11 @@ In this lab you will learn basic Docker commands and run your first container
 
     Sometimes application inside container doesn't respond to `Ctrl-C` and thus doesn't exit interactive mode. If you encounter this situation you have to stop/kill container manually.
 
-1. Check if nginx stopped responding to requests
+1. Check if nginx stopped responding to requests (optionally check this in incognito tab)
 
 ## Task 3: Run container in background
 
-To run container in background (detached mode) and `-d` flag. Running container in background will free your access to the terminal.
+To run container in background (detached mode) add `-d` flag. Running container in background will free your access to the terminal.
 
 1. Run container in detached mode: 
 
@@ -58,11 +58,25 @@ To run container in background (detached mode) and `-d` flag. Running container 
     docker run -d -p 80:80 nginx
     ```
     
-    This command will output ID of a created container. Copy it.
+    This command will output ID of a created container.
 
 1. Go to web browser and check if nginx started to responding to requests again.
 
-## Task 4: Get logs from container
+## Task 4: List running containers
+
+1. To list all running containers execute:
+
+    ```bash
+    docker ps
+    ```
+
+1. List all containers available on host machine:
+
+    ````bash
+    docker ps -a
+    ```
+
+## Task 5: Get logs from container
 
 1. Get logs from running container:
 
@@ -74,7 +88,7 @@ To run container in background (detached mode) and `-d` flag. Running container 
 
 1. Refresh a page and see if new logs are available.
 
-## Task 5: Execute a command on running container
+## Task 6: Execute a command on running container
 
 `docker exec` lets you execute command on running container. This command is useful for debugging problems with container, but you should not use it to configure running container.
 
@@ -95,20 +109,6 @@ To run container in background (detached mode) and `-d` flag. Running container 
 1. Exit interactive mode by typing `exit`
 
     You can safely exit the interactive mode, because you won't terminate the running container.
-
-## Task 6: List running containers
-
-1. To list all running containers execute:
-
-    ```bash
-    docker ps
-    ```
-
-1. List all containers available on host machine:
-
-    ````bash
-    docker ps -a
-    ```
 
 ## Task 7: Stop running container
 
@@ -133,7 +133,17 @@ To run container in background (detached mode) and `-d` flag. Running container 
 ## Task 8: Create new page to serve from nginx
 
 1. Start new nginx container in background
-1. Attach to container in interactive mode
+
+    ```bash
+    docker run -d -p 80:80 nginx
+    ```
+
+1. Attach to container in interactive mode:
+
+    ```bash
+    docker exec -it <CONTAINER_ID> sh
+    ```
+
 1. Go to nginx main directory that contains content to serve:
 
     ```bash
@@ -147,8 +157,18 @@ To run container in background (detached mode) and `-d` flag. Running container 
     ```
 
 1. Check if nginx is running and serving new page. The page should be served at: `http://<VM_IP_ADDRESS>/new.html` (replace `<VM_IP_ADDRESS>` with your VM IP address).
+1. Type `exit`. This command will exit interactive mode (the container will remain running). 
+1. Stop and start container again:
 
-1. Type `exit`. This command will exit and stop the container. The nginx web page will be no longer available. If you want to get it back you will need to run ubuntu image and install nginx manually again. In next lab about **Dockerfiles** you will learn how to automate such tasks.
+    ```
+    docker stop <CONTAINER_IR>
+    ```
+
+    ```bash
+    docker run -d -p 80:80 nginx
+    ```
+
+1. The nginx web page will be no longer available, because every new container will have new filesystem (without `new.html`). If you want to get it back you will need to run nginx image and create page manually again. In next lab about **Dockerfiles** you will learn how to automate such tasks.
 
 ## Task 9: Clean-up resources
 

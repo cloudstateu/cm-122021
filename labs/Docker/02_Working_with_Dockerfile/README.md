@@ -9,7 +9,7 @@
 
 In this lab you will learn how to work with Dockerfiles and how to build your own docker images and containers
 
-## Task 1: Create container that will run nginx server
+## Task 1: Create container with nginx server
 
 1. Verify content of `Dockerfile` file
 1. Run: 
