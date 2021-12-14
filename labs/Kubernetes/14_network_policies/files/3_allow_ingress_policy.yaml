@@ -11,9 +11,6 @@ spec:
   - Ingress
   ingress:
   - from:
-    - namespaceSelector:
-        matchLabels:
-          project: np
     - podSelector:
         matchLabels:
           id: frontend
